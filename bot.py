@@ -18,9 +18,6 @@ async def on_ready():
 async def on_message(message):
     if message.author.bot:
         return None
-    
-    if discord.Channel(name='public-chat'):
-        return print('<#bot-ask> 채널에서 명령어를 써주시기 바랍니다!')
 
     if message.content.startswith("!명령어"):
         channel = message.channel
