@@ -1,9 +1,5 @@
 import asyncio
 import discord
-import json
-import urllib
-import os
-import sys
 
 client = discord.Client()
 
@@ -17,13 +13,14 @@ async def on_ready():
     print("===========")
     await client.change_presence(game=discord.Game(name="!명령어 를 채팅창에!", type=1))
 
-@client.event
-
 
 @client.event
 async def on_message(message):
     if message.author.bot:
         return None
+    
+    if discord.Channel(name='public-chat'):
+        return print('<#bot-ask> 채널에서 명령어를 써주시기 바랍니다!')
 
     if message.content.startswith("!명령어"):
         channel = message.channel
