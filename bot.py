@@ -1,6 +1,8 @@
 import asyncio
 import discord
-
+import time
+from datetime import datetime
+from oauth2client.service_account import ServiceAccountCredentials
 swit = 0
 
 client = discord.Client()
@@ -25,15 +27,12 @@ async def on_message(message):
 
 
     if message.content:
-       if str(message.channel) != 'bot-ask':
-           channel = message.channel
-           await client.send_message(channel, '#bot-ask 채널에서 말해주세요!')
-           swit = 1
-       else:
-           swit = 0
-           
-       if swit == 0:
-           if message.content.startswith("!명령어"):
+
+        if message.content.startswith("!명령어"):
+            if str(message.channel) != 'bot-ask':
+                channel = message.channel
+                await client.send_message(channel,'bot-ask 채널에서 말해주세요!')
+            else:
                 channel = message.channel
                 embed = discord.Embed(
                     title = 'DEADSEC 디스코드 명령어',
@@ -52,35 +51,67 @@ async def on_message(message):
                 embed.add_field(name = '!브레이브', value = '브레이브 멈블 사이트 링크를 불러옵니다.',inline = False)
                 await client.send_message(channel,embed=embed)
 
-           elif message.content.startswith('!안내서'):
+        elif message.content.startswith('!안내서'):
+            if str(message.channel) != 'bot-ask':
+                channel = message.channel
+                await client.send_message(channel,'bot-ask 채널에서 말해주세요!')
+            else:
                 embed = discord.Embed(title='기본안내서 링크입니다!', description='https://docs.google.com/document/d/1k4daY8_pTnd21GJNFBfun_xfQgA0yu4WTqhwjZ8qG4A/edit', color=0x00ff00)
                 await client.send_message(message.channel, embed=embed)
 
-           elif message.content.startswith('!바이백'):
+        elif message.content.startswith('!바이백'):
+            if str(message.channel) != 'bot-ask':
+                channel = message.channel
+                await client.send_message(channel,'bot-ask 채널에서 말해주세요!')
+            else:            
                 embed = discord.Embed(title='바이백 문서 링크입니다!', description='https://docs.google.com/spreadsheets/d/1q1z7S085qp_J6opfozCv3rb7DgB-ApcUYSS4J0ubo2g/edit?ouid=104471863279176496179&usp=sheets_home&ths=true', color=0x00ff00)
                 await client.send_message(message.channel, embed=embed)
 
-           elif message.content.startswith('!스킬'):
+        elif message.content.startswith('!스킬'):
+            if str(message.channel) != 'bot-ask':
+                channel = message.channel
+                await client.send_message(channel,'bot-ask 채널에서 말해주세요!')
+            else:
                 embed = discord.Embed(title='스킬 플랜 문서 링크입니다!', description='https://docs.google.com/document/d/1l7PZeyaaQCvgka3jN7jV7lzQRKHW3p4N6JR81mwTZMA/edit', color=0x00ff00)
                 await client.send_message(message.channel, embed=embed)
 
-           elif message.content.startswith('!srp'):
+        elif message.content.startswith('!srp'):
+            if str(message.channel) != 'bot-ask':
+                channel = message.channel
+                await client.send_message(channel,'bot-ask 채널에서 말해주세요!')
+            else:
                 embed = discord.Embed(title='SRP 규정 문서 링크입니다!', description='https://docs.google.com/document/d/19C6wbknOBGvpw1EUl9k2f0GeFVpNpfXGY_1NYEXoS9w/edit', color=0x00ff00)
                 await client.send_message(message.channel, embed=embed)
 
-           elif message.content.startswith('!인텔'):
+        elif message.content.startswith('!인텔'):
+            if str(message.channel) != 'bot-ask':
+                channel = message.channel
+                await client.send_message(channel,'bot-ask 채널에서 말해주세요!')
+            else:
                 embed = discord.Embed(title='인텔 사이트 링크입니다!', description='http://intelmap.xyz', color=0x00ff00)
                 await client.send_message(message.channel, embed=embed)
 
-           elif message.content.startswith('!캐피탈'):
+        elif message.content.startswith('!캐피탈'):
+            if str(message.channel) != 'bot-ask':
+                channel = message.channel
+                await client.send_message(channel,'bot-ask 채널에서 말해주세요!')
+            else:
                 embed = discord.Embed(title='캐피탈 규정 문서 링크입니다!', description='https://docs.google.com/document/d/1N_PYbDXed4I-17yfq9nbsbElZOqjnCLEUA-axe-zpEg/edit', color=0x00ff00)
                 await client.send_message(message.channel, embed=embed)
 
-           elif message.content.startswith('!얼라이언스'):
+        elif message.content.startswith('!얼라이언스'):
+            if str(message.channel) != 'bot-ask':
+                channel = message.channel
+                await client.send_message(channel,'bot-ask 채널에서 말해주세요!')
+            else:
                 embed = discord.Embed(title='얼라이언스 홈페이지 링크입니다!', description='https://auth.walka.space', color=0x00ff00)
                 await client.send_message(message.channel, embed=embed)
     
-           elif message.content.startswith('!브레이브'):
+        elif message.content.startswith('!브레이브'):
+            if str(message.channel) != 'bot-ask':
+                channel = message.channel
+                await client.send_message(channel,'bot-ask 채널에서 말해주세요!')
+            else:
                 embed = discord.Embed(title='브레이브 멈블 사이트 주소입니다!', description='https://mumble.bravecollective.com/', color=0x00ff00)
                 await client.send_message(message.channel, embed=embed)
 
