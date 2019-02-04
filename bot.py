@@ -1,9 +1,6 @@
 import asyncio
 import discord
-import gspread
-import time
-from datetime import datetime
-from oauth2client.service_account import ServiceAccountCredentials
+
 swit = 0
 
 client = discord.Client()
@@ -30,7 +27,7 @@ async def on_message(message):
     if message.content:
        if str(message.channel) != 'bot-ask':
            channel = message.channel
-           await client.send_message(channel, 'bot-ask 채널에서 말해주세요.')
+           await client.send_message(channel, '#bot-ask 채널에서 말해주세요!')
            swit = 1
        else:
            swit = 0
