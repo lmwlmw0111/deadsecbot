@@ -2,7 +2,7 @@ import asyncio
 import discord
 import time
 from datetime import datetime
-from oauth2client.service_account import ServiceAccountCredentials
+
 swit = 0
 
 client = discord.Client()
