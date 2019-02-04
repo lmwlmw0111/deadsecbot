@@ -13,12 +13,14 @@ async def on_ready():
     print("===========")
     await client.change_presence(game=discord.Game(name="!명령어 를 채팅창에!", type=1))
 
+@client.event
+
 
 @client.event
 async def on_message(message):
     if message.author.bot:
         return None
-
+    
 
     if message.content.startswith("!명령어"):
         channel = message.channel
@@ -70,7 +72,6 @@ async def on_message(message):
     elif message.content.startswith('!브레이브'):
         embed = discord.Embed(title='브레이브 멈블 사이트 주소입니다!', description='https://mumble.bravecollective.com/', color=0x00ff00)
         await client.send_message(message.channel, embed=embed)
-
 
 client.run(token)
 
