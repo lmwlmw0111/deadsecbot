@@ -47,14 +47,16 @@ async def on_message(message):
                         colour = 0x00ff00
                     )
                     embed.set_footer(text = '명령어는 추가될 수 있습니다!')
+                    embed.add_field(name = '!얼라이언스', value = '얼라이언스 홈페이지 링크를 불러옵니다.',inline = False)
                     embed.add_field(name = '!안내서', value = '기본안내서의 링크를 불러옵니다.',inline = False)
+                    embed.add_field(name = '!브레이브', value = '브레이브 멈블 사이트 링크를 불러옵니다.',inline = False)
+                    embed.add_field(name = '!테스트', value = '테스트 멈블에 접속가능한 Auth 사이트 링크를 불러옵니다.',inline = False)
                     embed.add_field(name = '!바이백', value = '바이백 문서의 링크를 불러옵니다.',inline = False)
                     embed.add_field(name = '!스킬', value = '스킬 플랜 문서의 링크를 불러옵니다.',inline = False)
                     embed.add_field(name = '!srp', value = 'SRP 규정 문서의 링크를 불러옵니다.',inline = False)
                     embed.add_field(name = '!인텔', value = '인텔 사이트의 링크를 불러옵니다.',inline = False)
                     embed.add_field(name = '!캐피탈', value = '캐피탈 규정 문서의 링크를 불러옵니다.',inline = False)
-                    embed.add_field(name = '!얼라이언스', value = '얼라이언스 홈페이지 링크를 불러옵니다.',inline = False)
-                    embed.add_field(name = '!브레이브', value = '브레이브 멈블 사이트 링크를 불러옵니다.',inline = False)
+
                     await client.send_message(channel,embed=embed)
 
         elif message.content.startswith('!안내서'):
@@ -138,7 +140,7 @@ async def on_message(message):
                     channel = message.channel
                     await client.send_message(channel,'bot-ask 채널에서 말해주세요!')
                 else:
-                    embed = discord.Embed(title='얼라이언스 홈페이지 링크입니다!', description='https://auth.walka.space', color=0x00ff00)
+                    embed = discord.Embed(title='얼라이언스 홈페이지 링크입니다!', description='http://requiem-eternal.space', color=0x00ff00)
                     await client.send_message(message.channel, embed=embed)
     
         elif message.content.startswith('!브레이브'):
@@ -152,6 +154,18 @@ async def on_message(message):
                 else:
                     embed = discord.Embed(title='브레이브 멈블 사이트 주소입니다!', description='https://mumble.bravecollective.com/', color=0x00ff00)
                     await client.send_message(message.channel, embed=embed)
+
+        elif message.content.startswith('!테스트'):
+            if guestcheck == 1:
+                await client.send_message(message.channel, '권한이 없습니다!')
+                
+            elif guestcheck == 0:
+                if str(message.channel) != 'bot-ask':
+                    channel = message.channel
+                    await client.send_message(channel,'bot-ask 채널에서 말해주세요!')
+                else:
+                    embed = discord.Embed(title='테스트 멈블에 접속할 수 있는 Auth 사이트 주소입니다!', description='https://auth.pleaseignore.com/profile/', color=0x00ff00)
+                    await client.send_message(message.channel, embed=embed
         guestcheck = 0
 
 client.run(token)
