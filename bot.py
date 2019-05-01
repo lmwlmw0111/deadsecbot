@@ -165,7 +165,8 @@ async def on_message(message):
                     await client.send_message(channel,'bot-ask 채널에서 말해주세요!')
                 else:
                     embed = discord.Embed(title='테스트 멈블에 접속할 수 있는 Auth 사이트 주소입니다!', description='https://auth.pleaseignore.com/profile/', color=0x00ff00)
-                    await client.send_message(message.channel, embed=embed
+                    await client.send_message(message.channel, embed=embed)
+        guestcheck = 0
 
 client.run(token)
 
